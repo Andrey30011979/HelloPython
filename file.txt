@@ -1,0 +1,7 @@
+& C:/Users/marym/AppData/Local/Programs/Python/Python311/python.exe c:/Users/marym/OneDrive/Документы/HelloPython/HomeWork2/task_3.py
+4
+3
+6
+3
+5
+5
