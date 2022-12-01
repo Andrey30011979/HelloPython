@@ -124,3 +124,9 @@
 # >, >=, <, <=, ==, !=
 # not, and, or – не путать с &, |, ^
 # Кое-что ещё: is, is not, in, not in
+
+# a = 1 < 4 and 5 > 2 # True
+# print(a)
+
+# a = 1 > 4 and 5 > 2 # False
+# print(a)
