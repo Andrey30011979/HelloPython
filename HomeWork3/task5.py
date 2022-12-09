@@ -5,3 +5,18 @@
 # 3, 5, 8, 13, 21] [Негафибоначчи](https://ru.wikipedia.org/wiki/
 # Негафибоначчи#:~:text=В математике%2C числа негафибоначчи — отрицательно 
 # индексированные элементы последовательности чисел Фибоначчи.)
+
+n = int(input('Введите число: '))
+negofibonacci = [1,-1]
+fibonacci = [1,1]
+
+for i in range(2,n):
+    list = fibonacci[i-1]+fibonacci[i-2]
+    fibonacci.append(list)
+    list2 = negofibonacci[i-2] - negofibonacci[i-1]
+    negofibonacci.append(list2)
+
+negofibonacci.reverse()
+fibonacci.insert(0, 0)
+
+print(f' Для {n} => {negofibonacci+fibonacci}')
