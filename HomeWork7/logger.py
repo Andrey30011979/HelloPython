@@ -1,3 +1,4 @@
+import builtins
 import output
 
 
@@ -30,12 +31,12 @@ def reading_file(param):
 
 
 def reading_all():
-    b == output.view()
-    if b == 1:
+    builtins == output.view()
+    if builtins == 1:
         with open('horizontal.csv', 'r') as file:
             for line in file:
                 print(line)
-    if b == 2:
+    if builtins == 2:
         with open('vertical.csv', 'r') as file:
             for line in file:
                 print(line)
@@ -72,12 +73,12 @@ def reading_file(param):
 
 
 def reading_all():
-    b == output.view()
-    if b == 1:
+    builtins == output.view()
+    if builtins == 1:
         with open('horizontal.txt', 'r') as file:
             for line in file:
                 print(line)
-    if b == 2:
+    if builtins == 2:
         with open('vertical.txt', 'r') as file:
             for line in file:
                 print(line)

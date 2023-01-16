@@ -11,7 +11,7 @@ def start():
         logger.log_to_file(contact)
         start()
     if button == 2:
-        print('\nИщем абонента\n')
+        print('Ищем абонента')
         contact = fc.find()
         logger.reading_file(contact)
         start()
