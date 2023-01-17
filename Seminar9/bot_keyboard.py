@@ -1,5 +1,6 @@
 import random
 import logging
+import emoji
 
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove
 from telegram.ext import Updater, CommandHandler, ConversationHandler, MessageHandler, Filters
@@ -78,9 +79,9 @@ def level_game(update, context):
             update.message.reply_text("Ваш ход. Сколько хотите взять конфет.")
             return 2 
         else:
-            update.message.reply_text("Ты победил!",reply_markup=markup) 
+            update.message.reply_text("Ты победил!\U0001F602",reply_markup=markup) 
     else:
-        update.message.reply_text("Победил Я!",reply_markup=markup)
+        update.message.reply_text("Победил Я!\U0001F601",reply_markup=markup)
     return ConversationHandler.END 
 
 
