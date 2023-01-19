@@ -3,7 +3,7 @@
 import sqlite3
 
 
-def get_contact(cursor):
+def get_contacts(cursor):
     '''показать все контакты'''
     cursor.execute("select * from phone")
     results = cursor.fetchall()

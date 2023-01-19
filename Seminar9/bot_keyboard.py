@@ -1,7 +1,8 @@
 import random
 import logging
-import emoji
 
+
+from emoji import emojize
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove
 from telegram.ext import Updater, CommandHandler, ConversationHandler, MessageHandler, Filters
 candies = 0
@@ -16,7 +17,7 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
-TOKEN ="5945103866:AAHMIjz3zQtEpMOVs2iYhXZxmpivubYQDOY"
+TOKEN = "5945103866:AAHMIjz3zQtEpMOVs2iYhXZxmpivubYQDOY"
 
 
 def start(update, context):
@@ -28,12 +29,14 @@ def start(update, context):
         reply_markup=markup
     )
 
+
 def game(update, context):
     update.message.reply_text(
         "Введите количество конфет для игры",
         reply_markup=ReplyKeyboardRemove()
     )
     return 1
+
 
 def rules(update, context):
     update.message.reply_text(
@@ -43,12 +46,12 @@ def rules(update, context):
 
 def exit(update, context):
     update.message.reply_text(
-        "Досвидание.",reply_markup=ReplyKeyboardRemove())
+        "Досвидание.", reply_markup=ReplyKeyboardRemove())
 
 
 def stop(update, context):
     update.message.reply_text("Всего доброго!")
-    return ConversationHandler.END 
+    return ConversationHandler.END
 
 
 def init_game(update, context):
@@ -77,28 +80,24 @@ def level_game(update, context):
         if candies >= 29:
             update.message.reply_text(f"На кану {candies} конфет.")
             update.message.reply_text("Ваш ход. Сколько хотите взять конфет.")
-            return 2 
+            return 2
         else:
-            update.message.reply_text("Ты победил!\U0001F602",reply_markup=markup) 
+            update.message.reply_text(
+                "Ты победил!\U0001F602", reply_markup=markup)
     else:
-        update.message.reply_text("Победил Я!\U0001F601",reply_markup=markup)
-    return ConversationHandler.END 
+        update.message.reply_text("Победил Я!\U0001F601", reply_markup=markup)
+    return ConversationHandler.END
 
 
-
-
-    
 game_handler = ConversationHandler(
-entry_points=[CommandHandler('game', game)],
-    states={   
+    entry_points=[CommandHandler('game', game)],
+    states={
         1: [MessageHandler(Filters.text & ~Filters.command, init_game)],
-        2: [MessageHandler(Filters.text & ~Filters.command, level_game)],   
-        },
-       fallbacks=[CommandHandler('stop', stop)]
-       
-    )
+        2: [MessageHandler(Filters.text & ~Filters.command, level_game)],
+    },
+    fallbacks=[CommandHandler('stop', stop)]
 
-
+)
 
 
 def main():
@@ -108,7 +107,7 @@ def main():
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("rules", rules))
     dp.add_handler(CommandHandler("exit", exit))
- 
+
 
     updater.start_polling()
 

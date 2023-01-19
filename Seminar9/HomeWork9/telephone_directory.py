@@ -19,16 +19,22 @@ add_storage = []
 
 
 def start(update, context):
-    context.bot.send_message(update.effective_chat.id, "Привет!")
-
-
-def info(update, context):
-    context.bot.send_message(update.effective_chat.id,
+     context.bot.send_message(update.effective_chat.id,
                              f"Привет! Я бот-телефонный справочник\n"
                              f"/all_contact - Показать все контакты\n"
                              f"/find_name - Найти контакты по фамилии\n"
                              f"/add - Добавить контакт\n"
                              f"/delete - Удалить контакт")
+   
+
+
+# def info(update, context):
+#     context.bot.send_message(update.effective_chat.id,
+#                              f"Привет! Я бот-телефонный справочник\n"
+#                              f"/all_contact - Показать все контакты\n"
+#                              f"/find_name - Найти контакты по фамилии\n"
+#                              f"/add - Добавить контакт\n"
+#                              f"/delete - Удалить контакт")
 
 
 def all_contact(update, context):
