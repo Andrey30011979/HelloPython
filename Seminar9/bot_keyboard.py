@@ -1,6 +1,6 @@
 import random
 import logging
-
+import emoji
 
 from emoji import emojize
 from telegram import ReplyKeyboardMarkup, ReplyKeyboardRemove
@@ -19,10 +19,19 @@ logger = logging.getLogger(__name__)
 
 TOKEN = "5945103866:AAHMIjz3zQtEpMOVs2iYhXZxmpivubYQDOY"
 
+# def start(update, context):
+#     name = f"{.message.from_user.first_name} {update.message.from_user.last_name}"
+#     update.message.reply_text(
+#     f'Привет, {name}! Я хочу сыграть с тобой в игру! Чтобы узнать правила нажми rules {emoji.emojize(":slightly_smiling_face:")}',
+#     reply_markup=markup
+# )
+
 
 def start(update, context):
+    name = f"{update.message.from_user.first_name} {update.message.from_user.last_name}"
     update.message.reply_text(
-        f"Привет давай поиграем.\n"
+        f'Привет, {name}! Я хочу сыграть с тобой в игру! Чтобы узнать правила нажми rules {emoji.emojize(":slightly_smiling_face:")}'
+        # f"Привет давай поиграем.\n"
         "/game-начать игру.\n"
         "/rules-правила игры.\n"
         "/exit-выйти\n",
@@ -41,7 +50,7 @@ def game(update, context):
 def rules(update, context):
     update.message.reply_text(
         """Игроки ходят по очереди,каждый игрок может взять не больше 28 конфет,
-        выигрывает тот кто взял последнии конфеты. """)
+        выигрывает тот кто взял последнии конфеты.""")
 
 
 def exit(update, context):
@@ -107,7 +116,6 @@ def main():
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("rules", rules))
     dp.add_handler(CommandHandler("exit", exit))
-
 
     updater.start_polling()
 
